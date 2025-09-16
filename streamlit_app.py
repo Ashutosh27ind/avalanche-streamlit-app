@@ -13,7 +13,6 @@ query = """
 SELECT
     PRODUCT,
     SENTIMENT_SCORE,
-    REVIEW_DATE,
     SHIPPING_DATE,
     REVIEW_TEXT
 FROM
@@ -93,4 +92,5 @@ if user_question:
     ).collect()[0][0]
 
     st.write(response)
+
 
