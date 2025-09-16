@@ -23,7 +23,7 @@ df_reviews = session.sql(query).to_pandas()
 
 # Convert dates
 df_reviews['SHIPPING_DATE'] = pd.to_datetime(df_reviews['SHIPPING_DATE'], errors="coerce")
-df_reviews['REVIEW_DATE'] = pd.to_datetime(df_reviews['REVIEW_DATE'], errors="coerce")
+#df_reviews['REVIEW_DATE'] = pd.to_datetime(df_reviews['REVIEW_DATE'], errors="coerce")
 
 # --- Visualization: Average Sentiment by Product ---
 st.subheader("Average Sentiment by Product")
@@ -93,3 +93,4 @@ if user_question:
     ).collect()[0][0]
 
     st.write(response)
+
