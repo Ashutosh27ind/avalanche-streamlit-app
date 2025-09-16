@@ -20,7 +20,7 @@ df_reviews = session.sql(query).to_pandas()
 df_string = df_reviews.to_string(index=False)
 
 # Convert date columns to datetime
-df_reviews['REVIEW_DATE'] = pd.to_datetime(df_reviews['REVIEW_DATE'])
+#df_reviews['REVIEW_DATE'] = pd.to_datetime(df_reviews['REVIEW_DATE'])
 df_reviews['SHIPPING_DATE'] = pd.to_datetime(df_reviews['SHIPPING_DATE'])
 
 # Visualization: Average Sentiment by Product
@@ -66,4 +66,5 @@ if user_question:
     # response = complete(model="claude-3-5-sonnet", prompt=f"Answer this question using the dataset: {user_question} <context>{df_string}</context>", session=session)
     # Use SQL instead:
     response = session.sql(f"SELECT SNOWFLAKE.CORTEX.COMPLETE('claude-3-5-sonnet', '{user_question}');").collect()[0][0]
+
     st.write(response)
